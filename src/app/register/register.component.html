@@ -1,0 +1,216 @@
+
+
+<div class="row" >
+    <div class="card text-center mx-auto p-2 m-2 " style="background-color: #d1d6a5;">
+        <div class="card-header bg-success text-white">
+       Registration Form
+        </div>
+        
+        <div class="card-body">
+            <form  [formGroup]="saveform"   >
+            <div class="form-group form-row">
+                <label for="txtName" class="col-md-4">Name</label>
+               <div class="col-md-8">
+                  <input
+                 
+                   id="txtName" name="name" type="text" formControlName="name"  placeholder="Full Name"  class="form-control" >
+                   <div class="text-danger" *ngIf="saveform.controls['name'].hasError('minlength')">
+                    Your name must be at least 3 characters long.
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.controls['name'].hasError('maxlength')">
+                    Your name must not be 15 characters .
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.get('name')?.invalid &&
+                   (saveform.get('name')?.dirty || saveform.get('name')?.touched || submitted) ">
+                      Name  is Required.
+                </div>
+                  
+               </div>
+    
+            </div>
+            <div class="form-group form-row">
+                <label for="txtUserName" class="col-md-4">User Name</label>
+               <div class="col-md-8">
+                  <input
+              
+                   id="txtUserName" name="username" type="text" formControlName="username"  placeholder=" User Name"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['username'].hasError('minlength')">
+                    Your User Name must be at least 3 characters long.
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.controls['username'].hasError('maxlength')">
+                    Your username must not be 10 characters .
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.get('username')?.invalid &&
+                   (saveform.get('username')?.dirty || saveform.get('username')?.touched || submitted) ">
+                      User Name  is Required.
+                </div>
+               </div>
+    
+            </div>
+            <div class="form-group form-row">
+                <label for="txtEmail" class="col-md-4">Email</label>
+               <div class="col-md-8">
+                  <input
+                 
+                   id="txtEmail" name="email" type="text" formControlName="email"  placeholder=" Email"  class="form-control">
+                   
+                   
+                <div class="text-danger" *ngIf="saveform.controls['email'].hasError('required')&& saveform.get('email')?.invalid &&
+                (saveform.get('email')?.dirty || saveform.get('email')?.touched || submitted)">
+                   Enter Required
+                </div>
+                <div class="text-danger" *ngIf="saveform.controls['email'].hasError('pattern')">
+                Email valid Email
+                    </div>
+                   <div *ngIf="emailAlredyExist!=''"  class="text-danger">
+                     Email Already Exist
+                   </div>
+               </div>
+    
+            </div>
+            <div class="form-group form-row">
+                <label for="txtAdd" class="col-md-4">Address</label>
+               <div class="col-md-8">
+                  <input
+               
+                   id="txtAdd" name="streetAddress" type="text" formControlName="streetAddress"  placeholder="Address"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['streetAddress'].hasError('minlength')">
+                   Address must be at least 3 characters long.
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.controls['streetAddress'].hasError('maxlength')">
+                    Your Street Address must not be greater than 25 characters .
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.get('streetAddress')?.invalid &&
+                   (saveform.get('streetAddress')?.dirty || saveform.get('streetAddress')?.touched || submitted) ">
+                     Address  is Required.
+                </div>
+                  
+               </div>
+    
+            </div>
+            <div  class="form-group form-row">
+               <label for="txtAdd" class="col-md-4">Phone Number</label>
+               <div class="col-md-8">
+               <ngx-intl-tel-input  [enableAutoCountrySelect]="true" [enablePlaceholder]="true"
+               [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+               [selectFirstCountry]="true" [maxLength]="10" 
+               [selectedCountryISO]="CountryISO.India"
+               [phoneValidation]="true" [separateDialCode]="true" name="phoneNumber" formControlName="phoneNumber" >
+              
+            </ngx-intl-tel-input>
+            
+        
+            <div class="text-danger" *ngIf="saveform.controls['phoneNumber'].errors">
+             Enter Correct Number
+       </div>
+          </div>
+          
+           </div>
+           
+            <!-- <div class="form-group form-row">
+               
+               <label for="txtphn" class="col-md-4">Phone Number</label>
+              <div class="col-md-8">
+                 <input
+             
+                  id="txtphn" name="phoneNumber" type="text" formControlName="phoneNumber"  placeholder=" Phone Number "  class="form-control">
+                 
+                  <div class="text-danger" *ngIf="saveform.controls['phoneNumber'].hasError('maxlength')">
+                  Must Include (+91 Country Code) Your Phone Number  must not be 10 characters  .
+                  </div>
+                  <div class="text-danger" *ngIf="saveform.get('phoneNumber')?.invalid &&
+                  (saveform.get('phoneNumber')?.dirty || saveform.get('phoneNumber')?.touched || submitted) ">
+                     Phone Number is Required.
+               </div>
+              </div>
+   
+           </div> -->
+            <div class="form-group form-row">
+                <label for="txtState" class="col-md-4">State</label>
+               <div class="col-md-8">
+                  <input
+               
+                   id="txtState" name="state" type="text" formControlName="state"  placeholder="State"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['state'].hasError('minlength')">
+                    Address must be at least 3 characters long.
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.controls['state'].hasError('maxlength')">
+                     Your state must not be 10 characters .
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.get('state')?.invalid &&
+                    (saveform.get('state')?.dirty || saveform.get('state')?.touched || submitted) ">
+                       State  is Required.
+                 </div>
+                   
+
+               </div>
+    
+            </div>
+            <div class="form-group form-row">
+                <label for="txtCity" class="col-md-4">City</label>
+               <div class="col-md-8">
+                  <input
+                
+                   id="txtCity" name="city" type="text" formControlName="city"  placeholder="City"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['city'].hasError('minlength')">
+                    City must be at least 3 characters long.
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.controls['city'].hasError('maxlength')">
+                     Your City must not be 15 characters .
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.get('city')?.invalid &&
+                    (saveform.get('city')?.dirty || saveform.get('city')?.touched || submitted) ">
+                   City is Required.
+                 </div>
+                  
+               </div>
+    
+            </div>
+            <div class="form-group form-row">
+                <label for="txtCode" class="col-md-4">Postal Code</label>
+               <div class="col-md-8">
+                  <input
+              
+                   id="txtCode" name="postalCode" type="number" formControlName="postalCode"  placeholder="Postal Code"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['postalCode'].hasError('pattern')">
+                  6 Digit Pin code Required
+                    </div>
+                   
+                    <div class="text-danger" *ngIf="saveform.get('postalCode')?.invalid &&
+                    (saveform.get('postalCode')?.dirty || saveform.get('postalCode')?.touched || submitted) ">
+                       Postal Code   is Required.
+                 </div>
+                  
+               </div>
+    
+            </div>
+            
+            <div class="form-group form-row">
+              <label for="txtPassword" class="col-md-4">Password</label>
+             <div class="col-md-8">
+                <input
+           
+                 id="txtPassword" name="password" type="password"  formControlName="password"  placeholder="Password" class="form-control"
+ >
+ <div class="text-danger" *ngIf="saveform.controls['password'].hasError('pattern')">
+   Password Must contain 8 letter (Upper case ,Lower Case,and Special Character) 
+      </div>
+      <div class="text-danger" *ngIf="saveform.get('password')?.invalid &&
+      (saveform.get('password')?.dirty || saveform.get('password')?.touched || submitted) ">
+         Password  is Required.
+   </div>
+                
+
+              </div>
+          </div>   
+             
+        <div class="card-footer text-muted">
+         <button
+      type="submit"
+          class="btn btn-info" (click)="registerClick()"  >Sign Up</button>  
+          
+        </div>
+            </form>
+      </div>
+    </div>
+  </div>

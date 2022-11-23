@@ -1,0 +1,19 @@
+<p>userlist works!</p>
+<ag-grid-angular 
+    style=" position:absolute;width: 1600px; height: 700px;left:300px; top:90px;" 
+    class="ag-theme-balham text-black"
+    [rowData]="rowData " 
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [pagination]="true"
+    [animateRows]="true"
+    [immutableColumns] = "true"
+    [frameworkComponents]="frameworkComponents"
+    
+    [paginationPageSize]="3"
+    suppressClickEdit
+    [editType]="editType"
+    >
+    
+  
+</ag-grid-angular>

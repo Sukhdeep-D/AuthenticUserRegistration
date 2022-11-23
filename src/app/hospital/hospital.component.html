@@ -1,0 +1,148 @@
+<!-- <p>hospital works!</p>
+<button class="btn btn-info p-2 m-2" data-toggle="modal" data-target="#newModal"><i class="fa fa-plus"></i> Create New
+</button>
+<table class="table table-striped table-active p-2 m-2">
+    <thead>
+        <tr>
+            <th>Hospital-Name</th>
+            <th>Facilities</th>
+            <th>Departments</th>
+            <th>Doctor's Name</th>
+            <th>Doctor's Qualification</th>
+            <th>Doctor's Expierence</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hospital of HospitalList">
+            <td>{{hospital.hospitalname}} </td>
+            <td>{{hospital.facilities}}</td>
+            <td>{{hospital.department}}</td>
+            <td>{{hospital.doctorlist.doctorname}}</td>
+            <td>{{hospital.doctorlist.qualification}}</td>
+            <td>{{hospital.doctorlist.expierence}}</td> 
+            <td>
+                <button (click)="editClick(hospital)" type="button" class="btn btn-info" data-toggle="modal"
+                    data-target="#EditModal">Edit</button>
+                <button (click)="deleteClick(hospital.id)" type="button" class="btn btn-danger p-2 m-2">Delete</button>
+            </td>
+        </tr>
+        <tr **ngFor="let doc of DoctorList"> 
+        </tr>
+    </tbody>
+</table> -->
+<ag-grid-angular 
+    style=" position:absolute;width: 1200px; height: 700px;left:300px; top:90px;" 
+    class="ag-theme-balham text-black"
+    [rowData]="HospitalList " 
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [pagination]="true"
+    [animateRows]="true"
+    [paginationPageSize]="3">
+  
+</ag-grid-angular>
+<form>
+    <!-- Create -->
+
+    <!-- Header -->
+    <div class="modal" role="dialog" id="newModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Create New </div>
+                    <button class="close" data-dismiss="modal" type="button">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="textname" class="col-sm-4">Hospital-Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" [(ngModel)]="newHospital.hospitalname" id="textname" placeholder="Name"
+                                name="name" class="form-control">
+                                
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="textfac" class="col-sm-4">Facilities</label>
+                        <div class="col-sm-8">
+                            <input type="text" [(ngModel)]="newHospital.facilities" id="textfac"
+                                placeholder="Facilities" name="facility" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="textdept" class="col-sm-4">Departments</label>
+                        <div class="col-sm-8">
+                            <input type="text" [(ngModel)]="newHospital.department" id="textdept"
+                                placeholder="Department Name" name="dept" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="docId" class="col-sm-4">Doctor-Name</label>
+                        <div class="col-sm-8">
+                            <select [(ngModel)]="newHospital.doctorId" class="form-control">
+                                <option *ngFor="let doc of DoctorList" [value]="doc.id" class="form-control">
+                                    {{doc.doctorname}} </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <footer> -->
+                <div class="modal-footer">
+                    <button (click)="saveClick()" class="btn btn-success" data-dismiss="modal">Save</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+<form>
+    <!-- Header -->
+    <div class="modal" role="dialog" id="EditModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Edit Hospital</div>
+                    <button class="close" data-dismiss="modal" type="button">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="textname" class="col-sm-4">Hospital-Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" [(ngModel)]="newHospital.hospitalname" id="textname" name="name"
+                                class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="texadd" class="col-sm-4">Facilities</label>
+                        <div class="col-sm-8">
+                            <input type="text" [(ngModel)]="newHospital.facilities" id="textadd" name="facility"
+                                class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="textdept" class="col-sm-4">Departments</label>
+                        <div class="col-sm-8">
+                            <input type="text" [(ngModel)]="newHospital.department" id="textdept" name="dept"
+                                class="form-control">
+                        </div>
+                    </div>
+                    </div>
+                <!-- <footer> -->
+                <div class="modal-footer">
+                    <button (click)="updateClick()" class="btn btn-success" data-dismiss="modal">Update</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

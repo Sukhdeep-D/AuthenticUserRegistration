@@ -1,0 +1,159 @@
+
+<div style="position:absolute; left:500px; top:60px;" class="border-border-dark p-4 m-4" >
+   <form [formGroup]="saveform"   > 
+          <div  >                                               
+           <div class="row g-0">
+              <div class="col text-center p-2 mb-3 bg-primary">
+                  <span class="fs-4">Add Plan</span>
+              </div>
+           </div>
+           
+           <div class="row">
+              <div class="col">
+                  <label  class="form-label"> Plan Name</label>
+                   <input type="text"  
+                   id="txtName" name="planName" type="text" formControlName="planName"  placeholder="Plan Name"  class="form-control" >
+                   <div class="text-danger" *ngIf="saveform.controls['planName'].hasError('minlength')">
+                     Plan Name  must be at least 3 characters long.
+                  </div>
+                  <div class="text-danger" *ngIf="saveform.controls['planName'].hasError('maxlength')">
+                   Plan  must not be 15 characters .
+                  </div>
+                  <div class="text-danger" *ngIf="saveform.get('planName')?.invalid &&
+                  (saveform.get('planName')?.dirty || saveform.get('planName')?.touched || submitted) ">
+                    Plan  is Required.
+               </div>
+              </div>
+          </div>
+  
+          <div class="row">
+              <div class="col">
+                  <label for="txtPlanPrice" class="form-label">Plan Price</label>
+                  
+                     <input
+                    
+                      id="txtPlanPrice" name="planPrice" type="text" formControlName="planPrice"  placeholder=" Plan Price"  class="form-control">
+                      
+                      <div class="text-danger" *ngIf="saveform.get('planPrice')?.invalid &&
+                      (saveform.get('planPrice')?.dirty || saveform.get('planPrice')?.touched || submitted) ">
+                        Plan Price  is Required.
+                   </div>
+                  
+              </div>
+          </div>
+          
+              <div class="col">
+                  <label for="txtData" class="col-md-4">Data Plan </label>
+                   
+                  <input
+              
+                   id="txtData" name="data" type="text" formControlName="data"  placeholder="Data"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['data'].hasError('minlength')">
+                 Data must be at least 3 characters long.
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.controls['data'].hasError('maxlength')">
+                    Data must not be 10 characters .
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.get('data')?.invalid &&
+                   (saveform.get('data')?.dirty || saveform.get('data')?.touched || submitted) ">
+                     Data  is Required.
+                </div>
+              </div>
+             
+  
+  
+          <div class="row">
+              <div class="col mb-3p">
+                  <label for="txtCall" class="col-md-4">Call Limit</label>
+                  
+                  <input
+                
+                   id="txtCall" name="state" type="text" formControlName="callLimit"  placeholder="Call Limit"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['callLimit'].hasError('minlength')">
+                    Call Limit must be at least 3 characters long.
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.controls['callLimit'].hasError('maxlength')">
+                      Call Limit must not be 10 characters .
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.get('callLimit')?.invalid &&
+                    (saveform.get('callLimit')?.dirty || saveform.get('callLimit')?.touched || submitted) ">
+                      Call field   is Required.
+                 </div>
+                   
+                  <div class=" form-text"></div>
+              </div>
+              <div class="col">
+                  <label for="txtSms" class="col-md-4">Sms Limit</label>
+                    
+                  <input
+                 
+                   id="txtSms" name="smsLimit" type="text" formControlName="smSlimit"  placeholder="Sms Limit"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['smSlimit'].hasError('minlength')">
+                    Sms Limit must be at least 3 characters long.
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.controls['smSlimit'].hasError('maxlength')">
+                   Sms Limit must not be 15 characters .
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.get('smSlimit')?.invalid &&
+                    (saveform.get('smSlimit')?.dirty || saveform.get('smSlimit')?.touched || submitted) ">
+                   Sms field  is Required.
+                 </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                  <label for="txtVal" class="col-md-4">Validity</label>
+                  
+                        <input
+                       
+                         id="txtVal" name="validity" type="number" formControlName="validity"  placeholder="Validity"  class="form-control">
+                         <div class="text-danger" *ngIf="saveform.controls['validity'].hasError('pattern')">
+                       Validity  Required
+                          </div>
+                         
+                          <div class="text-danger" *ngIf="saveform.get('validity')?.invalid &&
+                          (saveform.get('validity')?.dirty || saveform.get('validity')?.touched || submitted) ">
+                             Validity  is Required.
+                       </div>
+                        
+              </div>
+             
+          </div>
+         
+          <div class="row">
+             
+              
+              <br>
+              <br>
+              
+            
+          <br>
+              <br>
+              <div class="p-4 text-center">
+                  <div class="col-6 offset-2">
+                      <div class="form-group row"  >
+                          <button
+            type="submit"
+                class="btn btn-info" (click)="saveplan()">Submit</button>  
+                      </div>
+                  </div>
+      
+          </div>
+          </div>
+           </div>
+       </form>
+   
+  
+      </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  

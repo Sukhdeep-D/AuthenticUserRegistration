@@ -1,0 +1,32 @@
+
+     <div style="position:absolute; left:500px; top:80px;">
+        <div class="text-dark">
+            <h2 style="position:relative;left: 400px "> Subscription Plan</h2>
+           
+        </div>
+       <br>
+       <br>
+        <div *ngFor="let list of planList">
+       
+        <div class=" columns"   >
+          <ul class="price">
+            
+            <li class="header" style="background-color:hsl(180, 71%, 39%)" >{{list.planName}}
+            </li>
+            <li class="grey">{{list.planPrice}}</li>
+            <li>{{list.data}}</li>
+            <li>{{list.callLimit}}</li>
+            <li>{{list.smSlimit}}</li>
+            <li>{{list.validity}}Days</li>
+            <li class="grey">
+              <button type="submit" class="button p-2 m-2" (click)="buyPlan(list)">Buy Plan </button>
+              <a routerLink="/home" class="btn btn-warning">Cancel Plan </a>
+            </li>
+
+          </ul>
+        </div>
+        
+   
+      </div>
+        </div>
+         

@@ -1,0 +1,51 @@
+.ag-theme-balham {
+    --ag-foreground-color: rgb(126, 46, 132);
+    --ag-background-color: rgb(249, 245, 227);
+    --ag-header-foreground-color: rgb(204, 245, 172);
+    --ag-header-background-color: rgb(209, 64, 129);
+    --ag-odd-row-background-color: rgba(230, 27, 27, 0.03);
+    --ag-header-column-resize-handle-color: rgb(126, 46, 132);
+
+    --ag-font-size: 17px;
+    --ag-font-family: monospace;
+}
+.ag-theme-balham {
+    --ag-header-height: 30px;
+    --ag-header-foreground-color: rgb(3, 8, 19);
+    --ag-header-background-color: rgb(118, 151, 179);
+    --ag-header-cell-hover-background-color: rgb(59, 194, 183);
+    --ag-header-cell-moving-background-color: rgb(214, 173, 84);
+}
+.ag-theme-balham .ag-header {
+    font-family: cursive;
+}
+.ag-theme-balham .ag-header-group-cell {
+    font-weight: normal;
+    font-size: 22px;
+    
+}
+.ag-theme-balham .ag-header-cell {
+    font-size: 18px;
+}
+.ag-theme-balham {
+    /* disable all borders */
+    --ag-borders: none;
+    /* then add back a border between rows */
+    --ag-borders-row: dashed 1px;
+    --ag-row-border-color: rgb(150, 150, 200);
+}
+/* replace all icons in the grid with icons from Font Awesome */
+.ag-theme-balham .ag-icon-pin {
+    --ag-icon-font-family: "Font Awesome 5 Free";
+    --ag-icon-font-code-aggregation: "\f247";
+    --ag-icon-font-code-arrows: "\f0b2";
+    --ag-icon-font-code-asc: "\f062";
+    /* ... and so on - you must define a font code for every icon */
+  }
+  .ag-theme-balham {
+    /* disable all borders */
+    --ag-borders: none;
+    /* then add back a border between rows */
+    --ag-borders-row: dashed 1px;
+    --ag-row-border-color: rgb(150, 150, 200);
+}

@@ -1,0 +1,49 @@
+
+<div style="width:12%;height:1000px">
+  <div class="bg-dark">
+  <div class="sidebar-content" style="height:800px;margin: 0 0 0 0;">
+    <h2 class="set-align"></h2>
+    <div class="set-sidebar-text" id="testUser">
+      <button class="btn btn-hide text-white" >Users        
+      </button>
+      <div class="set-sidebar-text" id="subMenu1">
+        <a  class="btn btn-hide text-white" (click)="gotoUser()">Add Users</a>
+        <a class="btn btn-hide text-white" (click)="gotodisplay()">User-Table</a>
+       </div>
+     
+    </div>
+    <div class="set-sidebar-text">
+      
+      <input type="radio" name="hospital" (click)="gotoHospital()">
+      Hospital
+      <br>
+    </div>
+    <div class="set-sidebar-text">
+      <input type="radio"  name="clinic"  (click)="gotoUser()">   
+      Clinic
+   
+      </div>
+     
+
+
+    <div class="set-sidebar-text" id="testdoc">
+      <button class="btn btn-hide text-white" >Doctors       
+      </button>
+      <div class="set-sidebar-text" id="subdoc">
+        <a  class="btn btn-hide text-white" (click)="gotoDoctor()">Add Doctors</a>
+       
+       </div>
+     
+    </div>
+
+     <div class="set-sidebar-text">
+      <button class="btn btn-hide text-white" (click)="gotosign()">
+      Sign-Out
+      </button> 
+  </div>
+  </div>
+
+</div> 
+
+    
+   

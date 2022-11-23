@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="card text-center mx-auto p-2 m-2">
+        <div class="card-header bg-success text-white">
+        Sign In
+        </div>
+        <div class="card-body">
+          <form  [formGroup]="saveform"   >
+            <div class="form-group form-row">
+                <label for="txtUserName" class="col-md-4">USERNAME</label>
+               <div class="col-md-8">
+                  <input
+                 
+                   id="txtUserName" name="username" formControlName="username" type="text" placeholder=" USER NAME"  class="form-control">
+                   <div class="text-danger" *ngIf="saveform.controls['username'].hasError('minlength')">
+                    Your User Name must be at least 3 characters long.
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.controls['username'].hasError('maxlength')">
+                    Your username must not be 10 characters .
+                   </div>
+                   <div class="text-danger" *ngIf="saveform.get('username')?.invalid &&
+                   (saveform.get('username')?.dirty || saveform.get('username')?.touched || submitted) ">
+                      User Name  is Required.
+                </div>
+               </div>
+              
+    
+            </div>
+            <div class="form-group form-row">
+              <label for="txtPassword" class="col-md-4">Password</label>
+             <div class="col-md-8">
+                <input
+                
+                 id="txtPassword" name="password" formControlName="password"  type="password" placeholder="Password" class="form-control"
+                >
+                <div class="text-danger" *ngIf="saveform.controls['password'].hasError('pattern')">
+                  Password Must contain 8 letter (Upper case ,Lower Case,and Special Character) 
+                    </div>
+                    <div class="text-danger" *ngIf="saveform.get('password')?.invalid &&
+                    (saveform.get('password')?.dirty || saveform.get('password')?.touched || submitted) ">
+                       Password  is Required.
+                 </div>
+             </div>
+            
+          </div>     
+        <div class="card-footer text-muted">
+         <button
+         (click)="loginClick()"
+         type="button" class="btn btn-info">LOGIN</button>
+        
+        </div>
+       If you are Not Register then Sign Up here <a routerLink="/register">Register Here</a>
+        </form>
+      </div>
+    </div>
+    
